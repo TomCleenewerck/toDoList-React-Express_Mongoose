@@ -1,0 +1,46 @@
+@import "master";
+.task{
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    padding: 0 1.5% 0 1.5%;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin: 3.5px 0;
+    border-radius: 6px;
+
+    > input[type="text"]{
+        background-color: transparent;
+        border: transparent solid 2px;
+        height: 35px;
+        color: aliceblue;
+        flex-grow: 1;
+        margin: 0 2.5%;
+        font-size: 1rem;
+        border-radius: 10px;
+        padding: 0 1.5%;
+    }
+    input[type="text"]:focus{
+        border: 2px $background-color1 solid;
+    }
+    > .btn{
+        > button{
+            border-color: white;
+            background-color: transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            > img{fill: $background-color1;}
+        }
+        >button:hover{
+            background-color: red;
+        }
+    }
+}
+.statusTaskP{
+    background-color: $background-color2;
+}
+.statusTaskF{
+    background-color: $background-color3;
+}

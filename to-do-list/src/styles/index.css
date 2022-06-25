@@ -1,0 +1,152 @@
+@font-face {
+  font-family: Ubuntu;
+  src: url(../assets/Ubuntu-Regular.ttf);
+}
+*:focus {
+  outline: none;
+}
+
+button, input {
+  font-family: Ubuntu, sans-serif;
+}
+
+.checkbox, .checkbox-checked {
+  transition: all 0.5s ease-in-out;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #b9d5fd;
+}
+.checkbox > [type=checkbox], .checkbox-checked > [type=checkbox] {
+  position: relative;
+  left: 0;
+  opacity: 0;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.btn > button {
+  transition: all 0.5s ease-in-out;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkbox {
+  background-color: white;
+}
+
+.checkbox:hover {
+  background-color: #071739;
+}
+
+.checkbox-checked {
+  background-color: #071739;
+}
+
+.checkbox-checked:hover {
+  background-color: white;
+}
+
+body {
+  margin: 0 5%;
+  background-color: #b9d5fd;
+  font-family: Ubuntu, sans-serif;
+}
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.homePage .newTaskForm {
+  width: 83%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.homePage .newTaskForm > input[type=text] {
+  height: 100%;
+  width: 95%;
+  padding: 0 2.5%;
+  border-radius: 10px;
+  background-color: #e7f0ed;
+  border: 2px #b9d5fd solid;
+  font-size: 1.3rem;
+}
+.homePage .newTaskForm input[type=text]:focus {
+  border: 2px #071739 solid;
+}
+.homePage .newTaskForm > .btn {
+  position: absolute;
+  right: 14%;
+}
+.homePage .newTaskForm > .btn > button {
+  width: 100%;
+  opacity: 0.7;
+  border: 2px solid #709fdc;
+  background-color: #709fdc;
+}
+.homePage .newTaskForm > .btn > button:hover {
+  opacity: 1;
+  background-color: #709fdc;
+  border-color: #071739;
+}
+.homePage .tasksList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.task {
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  padding: 0 1.5% 0 1.5%;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  margin: 3.5px 0;
+  border-radius: 6px;
+}
+.task > input[type=text] {
+  background-color: transparent;
+  border: transparent solid 2px;
+  height: 35px;
+  color: aliceblue;
+  flex-grow: 1;
+  margin: 0 2.5%;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0 1.5%;
+}
+.task input[type=text]:focus {
+  border: 2px #b9d5fd solid;
+}
+.task > .btn > button {
+  border-color: white;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.task > .btn > button > img {
+  fill: #b9d5fd;
+}
+.task > .btn > button:hover {
+  background-color: red;
+}
+
+.statusTaskP {
+  background-color: #709fdc;
+}
+
+.statusTaskF {
+  background-color: #071739;
+}
+
+/*# sourceMappingURL=index.css.map */

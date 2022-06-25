@@ -1,0 +1,109 @@
+//Shortcut
+@font-face {
+    font-family: Ubuntu;
+    src: url(../assets/Ubuntu-Regular.ttf);
+}
+$background-color1: #b9d5fd;
+$background-color2: #709fdc;
+$background-color3: #071739;
+
+// Elements
+*:focus{outline: none;}
+button, input{
+    font-family: Ubuntu, sans-serif;
+}
+.checkbox, .checkbox-checked{
+    transition: all 0.5s ease-in-out;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #b9d5fd;
+    > [type="checkbox"]{
+        position: relative;
+        left: 0;
+        opacity: 0;
+        border-radius: 100px;
+        cursor: pointer;
+    }
+}
+.btn{
+    > button{
+        transition: all 0.5s ease-in-out;
+        border: 2px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+.checkbox{
+    background-color: white;
+}
+.checkbox:hover{
+    background-color: $background-color3;
+}
+.checkbox-checked{
+    background-color: $background-color3;
+}
+.checkbox-checked:hover{
+    background-color: white;
+}
+
+
+
+
+
+
+// Page
+body{
+    margin: 0 5%;
+    background-color: $background-color1;
+    font-family: Ubuntu, sans-serif;
+}
+.homePage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .newTaskForm{
+        width: 83%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0;
+        > input[type="text"]{
+            height: 100%;
+            width: 95%;
+            padding: 0 2.5%;
+            border-radius: 10px;
+            background-color: #e7f0ed;
+            border: 2px $background-color1 solid;
+            font-size: 1.3rem;
+        }
+        input[type="text"]:focus{
+            border: 2px $background-color3 solid;
+        }
+        >.btn{
+            position: absolute;
+            right: 14%;
+
+            >button{
+                width: 100%;
+                opacity: 0.7;
+                border: 2px solid $background-color2;
+                background-color: $background-color2;
+            }
+            >button:hover{
+                opacity: 1;
+                background-color: $background-color2;
+                border-color: $background-color3;
+            }
+        }
+    }
+    .tasksList{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+
