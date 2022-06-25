@@ -1,10 +1,17 @@
-// @/main.js
 const express = require("express");
 const mongoose = require("mongoose");
 const { Task } = require("./models");
 const { url } = require("./config");
 
 const app = express();
+const cors = require("cors");
+const corsOptions = {
+    origin: "*",
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions)); // Use this after the variable declaration
 
 app.use(express.json());
 
@@ -26,8 +33,10 @@ app.post("/tasks", async (req, res) => {
 });
 
 app.put("/tasks/:id", async (req, res) => {
+    console.log(req.params);
+    console.log(req.body);
     const { id } = req.params;
-    await Task.updateOne({ id }, req.body);
+    await Task.updateOne({ _id: id }, req.body);
     const updatedTasks = await Task.findById(id);
     return res.status(200).json(updatedTasks);
 });
