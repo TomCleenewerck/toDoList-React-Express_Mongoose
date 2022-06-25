@@ -33,8 +33,6 @@ app.post("/tasks", async (req, res) => {
 });
 
 app.put("/tasks/:id", async (req, res) => {
-    console.log(req.params);
-    console.log(req.body);
     const { id } = req.params;
     await Task.updateOne({ _id: id }, req.body);
     const updatedTasks = await Task.findById(id);

@@ -20,19 +20,14 @@ const Home = () => {
 
     //insert a new task
     const insertTask = () => {
-        console.log("insertTask");
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name: name,
-                status: "P",
-                description: "",
-            }),
-        };
-        fetch("http://localhost:3000/tasks", requestOptions)
-            .then((response) => response.json())
-            .then((data) => this.setState({ postId: data.id }));
+        if (name !== "") {
+            let body = { name: name, status: "P", description: "" };
+            const request = "http://localhost:3000/tasks/";
+            axios
+                .post(request, body)
+                .then((response) => console.log(response))
+                .catch((err) => console.warn(err));
+        }
     };
 
     const nameChange = (event) => {

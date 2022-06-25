@@ -9,6 +9,20 @@ $background-color3: #071739;
 
 // Elements
 *:focus{outline: none;}
+
+::-webkit-scrollbar {
+    width: auto;                 
+  }
+::-webkit-scrollbar-track {
+background: white;       
+border-radius: 20px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $background-color3;    
+    border-radius: 20px;      
+    border: 3px solid rgb(255, 255, 255);  
+}
+
 button, input{
     font-family: Ubuntu, sans-serif;
 }
@@ -106,4 +120,5 @@ body{
         width: 100%;
     }
 }
+
 

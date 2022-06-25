@@ -7,28 +7,29 @@ const Task = ({ task }) => {
     let checked = status === "F" ? true : false;
     return (
         <div className={"task " + "statusTask" + status}>
-            <div className={status === "P" ? "checkbox" : "checkbox-checked"}>
+            <div
+                className={status === "P" ? "checkbox" : "checkbox-checked"}
+                onClick={() => {
+                    const request = "http://localhost:3000/tasks/" + task._id;
+                    let body;
+                    if (status === "P") {
+                        setStatus("F");
+                        body = { status: "F" };
+                    } else {
+                        setStatus("P");
+                        body = { status: "P" };
+                    }
+                    checked = !checked;
+                    axios
+                        .put(request, body)
+                        .then((response) => console.log(response))
+                        .catch((err) => console.warn(err));
+                }}
+            >
                 <input
                     type="checkbox"
                     defaultChecked={checked}
                     id={"check" + task._id}
-                    onClick={() => {
-                        const request =
-                            "http://localhost:3000/tasks/" + task._id;
-                        let body;
-                        if (status === "P") {
-                            setStatus("F");
-                            body = { status: "F" };
-                        } else {
-                            setStatus("P");
-                            body = { status: "P" };
-                        }
-                        checked = !checked;
-                        axios
-                            .put(request, body)
-                            .then((response) => console.log(response))
-                            .catch((err) => console.warn(err));
-                    }}
                 ></input>
             </div>
             <input
@@ -39,7 +40,7 @@ const Task = ({ task }) => {
                     const name = document.getElementById(
                         "task" + task._id
                     ).value;
-                    if (task.name !== name) {
+                    if (task.name !== name && name !== "") {
                         let body = { name: name };
                         const request =
                             "http://localhost:3000/tasks/" + task._id;

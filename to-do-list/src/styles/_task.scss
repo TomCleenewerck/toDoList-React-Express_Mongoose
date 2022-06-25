@@ -44,3 +44,14 @@
 .statusTaskF{
     background-color: $background-color3;
 }
+
+@media only screen and (max-width: 768px) {
+    .task input[type="text"]{
+        max-width: 80%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .task input[type="text"]{
+        max-width: 60%;
+    }
+}

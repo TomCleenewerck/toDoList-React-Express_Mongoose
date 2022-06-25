@@ -6,6 +6,21 @@
   outline: none;
 }
 
+::-webkit-scrollbar {
+  width: auto;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #071739;
+  border-radius: 20px;
+  border: 3px solid rgb(255, 255, 255);
+}
+
 button, input {
   font-family: Ubuntu, sans-serif;
 }
@@ -147,6 +162,17 @@ body {
 
 .statusTaskF {
   background-color: #071739;
+}
+
+@media only screen and (max-width: 768px) {
+  .task input[type=text] {
+    max-width: 80%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .task input[type=text] {
+    max-width: 60%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
