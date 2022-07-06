@@ -1,49 +1,19 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const { Task } = require("./models");
-const { url } = require("./config");
+import express from "express";
+import mongoose from "mongoose";
+import url from "./config.js";
+import cors from "cors";
+import taskFunc from "./routers/index.js";
 
 const app = express();
-const cors = require("cors");
 const corsOptions = {
     origin: "*",
-    credentials: true, //access-control-allow-credentials:true
+    credentials: "include", //access-control-allow-credentials:true
     optionSuccessStatus: 200,
 };
-
-app.use(cors(corsOptions)); // Use this after the variable declaration
+app.use(cors(corsOptions));
 
 app.use(express.json());
-
-app.get("/tasks", async (req, res) => {
-    const allTask = await Task.find(req.query);
-    return res.status(200).json(allTask);
-});
-
-app.get("/tasks/:id", async (req, res) => {
-    const { id } = req.params;
-    const task = await Task.findById(id);
-    return res.status(200).json(task);
-});
-
-app.post("/tasks", async (req, res) => {
-    const newTask = new Task({ ...req.body });
-    const insertedTask = await newTask.save();
-    return res.status(201).json(insertedTask);
-});
-
-app.put("/tasks/:id", async (req, res) => {
-    const { id } = req.params;
-    await Task.updateOne({ _id: id }, req.body);
-    const updatedTasks = await Task.findById(id);
-    return res.status(200).json(updatedTasks);
-});
-
-app.delete("/tasks/:id", async (req, res) => {
-    const { id } = req.params;
-    const deletedTasks = await Task.findByIdAndDelete(id);
-    return res.status(200).json(deletedTasks);
-});
+taskFunc(app);
 
 const start = async () => {
     try {
